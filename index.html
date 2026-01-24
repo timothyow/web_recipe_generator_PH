@@ -5,49 +5,82 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alaska Recipe Idea Generator (MVP) – PH Mompreneurs</title>
-  <meta name="description" content="A very simple, mobile-first, rule-based recipe idea generator for PH mompreneurs using Alaska culinary milk bases." />
-  https://cdn.tailwindcss.com</script>
+  <meta name="description" content="A simple, mobile-first, rule-based recipe idea generator for PH mompreneurs using Alaska culinary milk bases." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f9fafb',
+              100: '#eef2ff',
+              200: '#dbeafe',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Minimal polish */
+    .card { @apply bg-white border rounded-xl shadow-sm p-4; }
+    .section-title { @apply text-base font-semibold text-gray-900; }
+    .hint { @apply text-xs text-gray-500; }
+    .chip { @apply inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded-full border bg-white; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900 antialiased">
   <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-10">
+  <header class="sticky top-0 z-20 bg-white/90 backdrop-blur border-b">
     <div class="max-w-3xl mx-auto px-4 py-4">
-      <h1 class="text-xl font-semibold">Alaska Recipe Idea Generator (MVP) – PH Mompreneurs</h1>
-      <p class="text-sm text-gray-600">Quick, rule-based inspiration for beverages & desserts using Alaska milk bases.</p>
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-xl font-bold tracking-tight">Alaska Recipe Idea Generator (MVP)</h1>
+          <p class="text-sm text-gray-600">Quick, rule-based inspiration for beverages & desserts using Alaska milk bases.</p>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span class="chip">Light • Fast</span>
+          <span class="chip">No login</span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-6 space-y-8">
+  <main class="max-w-3xl mx-auto px-4 py-6 space-y-6">
     <!-- Section 1: Select Alaska Base -->
-    <section class="bg-white border rounded-lg p-4">
-      <h2 class="text-base font-semibold mb-3">1) Select Alaska Base</h2>
-      <div class="grid grid-cols-1 gap-3">
-        <label class="flex items-start gap-3 p-3 border rounded-lg">
-          <input type="radio" name="base" value="Alaska Sweetened Condensed Milk (SCM)" class="mt-1 base-radio">
+    <section class="card">
+      <h2 class="section-title">1) Select Alaska Base</h2>
+      <p class="hint mt-1">Pick one base to focus your ideas.</p>
+      <div class="mt-3 grid grid-cols-1 gap-3">
+        <label class="flex items-start gap-3 p-3 border rounded-lg hover:border-brand-600 transition">
+          <input type="radio" name="base" value="Alaska Sweetened Condensed Milk (SCM)" class="mt-1 base-radio accent-brand-700">
           <div>
             <div class="text-sm font-medium">Alaska Sweetened Condensed Milk (SCM)</div>
             <div class="text-xs text-gray-600">Sweet, thick, dessert-forward</div>
           </div>
         </label>
 
-        <label class="flex items-start gap-3 p-3 border rounded-lg">
-          <input type="radio" name="base" value="Alaska Evaporated Milk (EVM)" class="mt-1 base-radio">
+        <label class="flex items-start gap-3 p-3 border rounded-lg hover:border-brand-600 transition">
+          <input type="radio" name="base" value="Alaska Evaporated Milk (EVM)" class="mt-1 base-radio accent-brand-700">
           <div>
             <div class="text-sm font-medium">Alaska Evaporated Milk (EVM)</div>
             <div class="text-xs text-gray-600">Creamy, balanced, versatile</div>
           </div>
         </label>
 
-        <label class="flex items-start gap-3 p-3 border rounded-lg">
-          <input type="radio" name="base" value="Alaska All-Purpose Cream" class="mt-1 base-radio">
+        <label class="flex items-start gap-3 p-3 border rounded-lg hover:border-brand-600 transition">
+          <input type="radio" name="base" value="Alaska All-Purpose Cream" class="mt-1 base-radio accent-brand-700">
           <div>
             <div class="text-sm font-medium">Alaska All-Purpose Cream</div>
             <div class="text-xs text-gray-600">Rich, premium texture</div>
           </div>
         </label>
 
-        <label class="flex items-start gap-3 p-3 border rounded-lg">
-          <input type="radio" name="base" value="Alaska 2-in-1 Creamer" class="mt-1 base-radio">
+        <label class="flex items-start gap-3 p-3 border rounded-lg hover:border-brand-600 transition">
+          <input type="radio" name="base" value="Alaska 2-in-1 Creamer" class="mt-1 base-radio accent-brand-700">
           <div>
             <div class="text-sm font-medium">Alaska 2-in-1 Creamer</div>
             <div class="text-xs text-gray-600">Convenient, smooth, beverage-friendly</div>
@@ -57,20 +90,21 @@
     </section>
 
     <!-- Section 2: Generate Recipe Ideas -->
-    <section class="bg-white border rounded-lg p-4">
-      <h2 class="text-base font-semibold mb-3">2) Generate Recipe Ideas</h2>
+    <section class="card">
+      <h2 class="section-title">2) Generate Recipe Ideas</h2>
+      <p class="hint mt-1">Keep inputs light. Tap the button to get three quick ideas.</p>
 
-      <div class="space-y-4">
+      <div class="mt-4 space-y-4">
         <!-- Business Type -->
         <div>
           <p class="text-sm font-medium mb-2">Business type</p>
           <div class="grid grid-cols-2 gap-2">
-            <label class="flex items-center gap-2 border rounded-md p-2">
-              <input type="radio" name="biztype" value="Beverage" class="biz-radio">
+            <label class="flex items-center gap-2 p-2 border rounded-md hover:border-brand-600 transition">
+              <input type="radio" name="biztype" value="Beverage" class="biz-radio accent-brand-700">
               <span class="text-sm">Beverage seller</span>
             </label>
-            <label class="flex items-center gap-2 border rounded-md p-2">
-              <input type="radio" name="biztype" value="Dessert" class="biz-radio">
+            <label class="flex items-center gap-2 p-2 border rounded-md hover:border-brand-600 transition">
+              <input type="radio" name="biztype" value="Dessert" class="biz-radio accent-brand-700">
               <span class="text-sm">Dessert seller</span>
             </label>
           </div>
@@ -79,7 +113,7 @@
         <!-- Selling Format -->
         <div>
           <label class="block text-sm font-medium mb-1" for="sellingFormat">Selling format</label>
-          <select id="sellingFormat" class="w-full border rounded-md px-3 py-2 text-sm">
+          <select id="sellingFormat" class="w-full border rounded-md px-3 py-2 text-sm bg-white">
             <option value="Per cup">Per cup</option>
             <option value="Per bottle">Per bottle</option>
             <option value="Per tray">Per tray</option>
@@ -90,7 +124,7 @@
         <!-- Optional Constraint -->
         <div>
           <label class="block text-sm font-medium mb-1" for="constraint">Optional constraint</label>
-          <select id="constraint" class="w-full border rounded-md px-3 py-2 text-sm">
+          <select id="constraint" class="w-full border rounded-md px-3 py-2 text-sm bg-white">
             <option value="">None</option>
             <option value="No oven">No oven</option>
             <option value="30-min prep">30-min prep</option>
@@ -101,25 +135,30 @@
 
         <!-- CTA -->
         <div>
-          <button id="generateBtn" class="w-full sm:w-auto px-4 py-2 rounded-md bg-blue-600 text-white font-medium">Generate Recipe Ideas</button>
+          <button id="generateBtn" class="w-full sm:w-auto px-4 py-2 rounded-md bg-brand-700 hover:bg-brand-600 text-white font-medium shadow-sm transition">Generate Recipe Ideas</button>
           <span id="statusMsg" class="text-sm text-emerald-700 ml-3 hidden">Done</span>
         </div>
       </div>
     </section>
 
     <!-- Section 3: Recipe Idea Card(s) -->
-    <section class="bg-white border rounded-lg p-4">
-      <h2 class="text-base font-semibold mb-3">3) Recipe Idea Card</h2>
-      <div id="ideasContainer" class="space-y-4">
-        <p class="text-sm text-gray-500">Choose a base and inputs above, then tap “Generate Recipe Ideas”.</p>
+    <section class="card">
+      <div class="flex items-center justify-between">
+        <h2 class="section-title">3) Recipe Idea Card</h2>
+        <span class="hint">3 ideas at a time</span>
+      </div>
+      <div id="ideasContainer" class="space-y-4 mt-3">
+        <div class="rounded-lg border border-dashed p-4 text-center text-sm text-gray-500 bg-white">
+          Choose a base and inputs above, then tap <span class="font-medium">“Generate Recipe Ideas”</span>.
+        </div>
       </div>
     </section>
 
     <!-- Section 4: Saved Ideas -->
-    <section class="bg-white border rounded-lg p-4">
+    <section class="card">
       <div class="flex items-center justify-between">
-        <h2 class="text-base font-semibold">4) Saved Ideas</h2>
-        <button id="refreshSaved" class="text-sm px-3 py-1.5 rounded-md border bg-gray-50">Refresh</button>
+        <h2 class="section-title">4) Saved Ideas</h2>
+        <button id="refreshSaved" class="text-sm px-3 py-1.5 rounded-md border bg-white hover:border-brand-600 transition">Refresh</button>
       </div>
       <div id="savedList" class="space-y-3 mt-3">
         <p class="text-sm text-gray-500">No saved ideas yet.</p>
@@ -138,22 +177,11 @@
     const genId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
     const escapeHtml = (s) => (s ?? "").toString().replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const fmtDateTime = iso => { try { return new Date(iso).toLocaleString(); } catch { return iso || ""; } };
+    function loadSaved() { try { return JSON.parse(localStorage.getItem(IDEAS_KEY) || "[]"); } catch { return []; } }
+    function saveAll(arr) { localStorage.setItem(IDEAS_KEY, JSON.stringify(arr)); }
+    function showStatus(msg="Done") { const s = $("statusMsg"); s.textContent = msg; s.classList.remove("hidden"); setTimeout(()=>s.classList.add("hidden"), 1500); }
 
-    function loadSaved() {
-      try { return JSON.parse(localStorage.getItem(IDEAS_KEY) || "[]"); } catch { return []; }
-    }
-    function saveAll(arr) {
-      localStorage.setItem(IDEAS_KEY, JSON.stringify(arr));
-    }
-
-    function showStatus(msg="Done") {
-      const s = $("statusMsg");
-      s.textContent = msg;
-      s.classList.remove("hidden");
-      setTimeout(()=>s.classList.add("hidden"), 1500);
-    }
-
-    // ===== Rule Bases =====
+    // ===== Messaging / Why it works =====
     const whyMap = {
       "Alaska Sweetened Condensed Milk (SCM)": "SCM adds instant sweetness and body—great for indulgent treats.",
       "Alaska Evaporated Milk (EVM)": "EVM delivers creamy balance that pairs well with ice and mix-ins.",
@@ -161,325 +189,432 @@
       "Alaska 2-in-1 Creamer": "2‑in‑1 Creamer is convenient and smooth—ideal for fast service."
     };
 
-    const flavorTwists = ["Ube", "Mango", "Mocha", "Pandan", "Strawberry", "Caramel", "Chocolate", "Cookies & Cream", "Banoffee", "Matcha"];
-    const toppings = ["nata de coco", "sago/pearls", "whipped cream", "toasted nuts", "choco chips", "crushed graham", "leche flan bits", "coffee jelly", "mango cubes"];
+    // Extra detail pools for variety (no quantities)
+    const dairyAddOns = ["fresh milk", "Alaska EVM", "Alaska All-Purpose Cream", "Alaska SCM (to taste)"];
+    const sweeteners = ["sugar syrup", "brown sugar", "honey", "caramel sauce", "chocolate syrup"];
+    const textures = ["nata de coco", "sago/pearls", "coffee jelly", "gulaman cubes", "crushed graham", "biscuit crumbs"];
+    const flavors = ["vanilla", "ube", "mango puree", "mocha", "pandan", "strawberry", "matcha", "banana", "cookies & cream"];
+    const aromatics = ["cinnamon", "nutmeg", "pinch of salt", "lemon/lime zest"];
+    const fruits = ["ripe mango", "banana", "lychee", "strawberries", "peaches"];
+    const nuts = ["toasted cashews", "almonds", "peanuts (crushed)"];
 
-    // Idea templates per (base, category). High-level, no quantities.
+    // ===== Idea templates per (base, category). Expanded ingredients (still high-level, no quantities). =====
     const ideas = {
-      // ===== SCM =====
+      // SCM
       "Alaska Sweetened Condensed Milk (SCM)": {
         Beverage: [
           {
             name: "Spanish Latte (SCM)",
             desc: "Bold coffee rounded with condensed milk for a smooth, sweet finish.",
-            ingredients: ["Freshly brewed coffee", "Alaska SCM", "Ice", "Cinnamon (optional)"],
+            ingredients: [
+              "strong brewed coffee", "Alaska SCM", "ice",
+              "vanilla or cinnamon", "optional fresh milk for balance"
+            ],
             steps: [
               "Dissolve a small amount of SCM in hot coffee.",
               "Cool slightly, then pour over ice.",
-              "Stir to combine and dust with cinnamon (optional)."
-            ],
+              "Top with a splash of milk; dust with cinnamon."
+            ]
           },
           {
             name: "Yema Milkshake",
             desc: "Dessert-like milkshake inspired by yema candy.",
-            ingredients: ["Milk", "Alaska SCM", "Ice", "Vanilla", "Crushed ice"],
+            ingredients: [
+              "Alaska SCM", "fresh milk or EVM", "ice", "vanilla",
+              "pinch of salt to balance"
+            ],
             steps: [
               "Combine milk and SCM; mix until silky.",
-              "Blend or shake briskly with ice.",
-              "Serve cold and adjust sweetness as needed."
-            ],
+              "Shake or blend briefly with ice.",
+              "Serve cold; adjust sweetness as needed."
+            ]
           },
           {
             name: "Mocha Condensed Frappe",
             desc: "Chocolate-coffee frappe brightened by condensed milk.",
-            ingredients: ["Coffee", "Cocoa powder", "Alaska SCM", "Ice"],
+            ingredients: [
+              "coffee", "cocoa or chocolate syrup", "Alaska SCM", "ice",
+              "whipped cream (optional)"
+            ],
             steps: [
               "Stir cocoa into warm coffee until dissolved.",
               "Add SCM and mix well.",
-              "Shake or blend with ice to a thick finish."
-            ],
+              "Blend or shake with ice to a thick finish."
+            ]
           },
           {
             name: "Thai-Style Iced Milk Tea (Easy)",
             desc: "Sweet tea latte with a creamy SCM note.",
-            ingredients: ["Strong black tea", "Alaska SCM", "Ice", "Lime wedge (optional)"],
+            ingredients: [
+              "strong black tea", "Alaska SCM", "ice", "lime wedge (optional)"
+            ],
             steps: [
               "Brew strong tea and sweeten lightly with SCM.",
               "Cool and pour over ice.",
-              "Finish with a fresh squeeze of lime (optional)."
-            ],
+              "Squeeze lime for brightness (optional)."
+            ]
           }
         ],
         Dessert: [
           {
             name: "Classic Leche Flan Cups",
             desc: "Silky custard steamed in cups—crowd favorite.",
-            ingredients: ["Egg yolks", "Alaska SCM", "Alaska EVM (optional)", "Vanilla", "Caramelized sugar"],
+            ingredients: [
+              "egg yolks", "Alaska SCM", "Alaska EVM (optional)", "vanilla",
+              "sugar for caramel"
+            ],
             steps: [
               "Coat cup bases with caramelized sugar.",
               "Whisk yolks, SCM, and vanilla; strain.",
               "Steam gently until just set; cool and chill."
-            ],
+            ]
           },
           {
             name: "Graham Float-in-a-Cup",
             desc: "Layered graham and cream with a sweet SCM lift.",
-            ingredients: ["Graham crackers", "Alaska All-Purpose Cream", "Alaska SCM", "Ripe fruit (e.g., mango)"],
+            ingredients: [
+              "graham crackers", "Alaska All-Purpose Cream", "Alaska SCM",
+              "ripe mango or strawberries", "crumbs for topping"
+            ],
             steps: [
-              "Fold SCM into whipped cold cream.",
+              "Whip cold cream; fold in SCM to taste.",
               "Layer graham, cream, and fruit.",
               "Chill until firm before serving."
-            ],
+            ]
           },
           {
             name: "Yema Sauce Drizzle",
             desc: "Thick, sweet sauce for turon, cupcakes, or parfaits.",
-            ingredients: ["Alaska SCM", "Butter", "Egg yolk (optional)", "Vanilla"],
-            steps: [
-              "Warm SCM with a little butter.",
-              "Stir until thick; add yolk for richer finish (optional).",
-              "Cool slightly and drizzle over desserts."
+            ingredients: [
+              "Alaska SCM", "butter", "egg yolk (optional)", "vanilla",
+              "pinch of salt"
             ],
+            steps: [
+              "Warm SCM with butter over low heat.",
+              "Stir until thick; add yolk for richness (optional).",
+              "Cool slightly and drizzle."
+            ]
           },
           {
             name: "No-Bake Pastillas Bites",
             desc: "Milk candy rolled in sugar—simple and sellable.",
-            ingredients: ["Milk powder", "Alaska SCM", "Sugar for rolling"],
+            ingredients: [
+              "milk powder", "Alaska SCM", "granulated sugar for rolling"
+            ],
             steps: [
               "Mix milk powder with enough SCM to form dough.",
               "Shape into bite-sized logs or balls.",
               "Roll in sugar and pack."
-            ],
+            ]
           }
         ]
       },
 
-      // ===== EVM =====
+      // EVM
       "Alaska Evaporated Milk (EVM)": {
         Beverage: [
           {
             name: "Street-Style Samalamig",
             desc: "Creamy milk refreshment with add-ins for texture.",
-            ingredients: ["Alaska EVM", "Cold water", "Sugar syrup", "Ice", "Nata de coco/sago"],
+            ingredients: [
+              "Alaska EVM", "cold water", "sugar syrup", "ice",
+              "nata de coco or sago", "vanilla (optional)"
+            ],
             steps: [
               "Combine water and syrup until dissolved.",
-              "Stir in EVM for creamy base.",
+              "Stir in EVM for a creamy base.",
               "Add ice and mix-ins; serve cold."
-            ],
+            ]
           },
           {
             name: "Halo-Halo Milk Base",
             desc: "Balanced, pourable milk base for halo-halo cups.",
-            ingredients: ["Alaska EVM", "Cold water", "Sugar (optional)"],
+            ingredients: [
+              "Alaska EVM", "cold water", "light sugar", "pinch of salt"
+            ],
             steps: [
               "Whisk EVM with water until smooth.",
               "Sweeten lightly to taste.",
               "Chill before assembling cups."
-            ],
+            ]
           },
           {
             name: "Iced Cereal Milk",
             desc: "Playful, nostalgic milk drink.",
-            ingredients: ["Toasted cereal", "Alaska EVM", "Cold water/ice", "Vanilla"],
+            ingredients: [
+              "toasted cereal", "Alaska EVM", "ice", "vanilla", "optional honey"
+            ],
             steps: [
               "Briefly soak toasted cereal in EVM.",
               "Strain for a smooth base.",
               "Serve over ice; add vanilla."
-            ],
+            ]
           },
           {
             name: "Iced Milk Tea (Balanced)",
             desc: "Tea-forward milk tea with creamy finish.",
-            ingredients: ["Strong tea", "Alaska EVM", "Sugar syrup", "Ice"],
+            ingredients: [
+              "strong tea", "Alaska EVM", "sugar syrup", "ice", "pearls (optional)"
+            ],
             steps: [
               "Brew strong tea; sweeten lightly.",
               "Add EVM and mix well.",
               "Pour over ice and serve."
-            ],
+            ]
           }
         ],
         Dessert: [
           {
             name: "Fruit Salad Milk Base",
             desc: "Light, creamy dressing for chilled fruit mixes.",
-            ingredients: ["Alaska EVM", "All-purpose cream (optional)", "Condensed milk (optional)", "Mixed fruits"],
+            ingredients: [
+              "Alaska EVM", "all-purpose cream (optional)", "light condensed milk (optional)",
+              "mixed fruits (mango, lychee, peaches)"
+            ],
             steps: [
               "Combine EVM with cream (optional).",
               "Sweeten lightly if needed.",
               "Fold into chilled fruits and serve."
-            ],
+            ]
           },
           {
             name: "Coffee Jelly with Milk",
             desc: "Bouncy coffee jelly topped with creamy milk.",
-            ingredients: ["Coffee jelly cubes", "Alaska EVM", "Sugar (optional)"],
+            ingredients: [
+              "coffee jelly cubes", "Alaska EVM", "sugar (optional)", "cream (optional)"
+            ],
             steps: [
               "Prepare firm coffee jelly; chill.",
               "Portion jelly in cups.",
               "Top with sweetened EVM and serve."
-            ],
+            ]
           },
           {
             name: "Mais con Yelo Cups",
             desc: "Corn, shaved ice, and creamy milk—classic and simple.",
-            ingredients: ["Sweet corn", "Shaved ice", "Alaska EVM", "Sugar or SCM (optional)"],
+            ingredients: [
+              "sweet corn", "shaved/crushed ice", "Alaska EVM",
+              "sugar or SCM (optional)", "corn flakes (optional)"
+            ],
             steps: [
               "Layer corn and ice in cups.",
               "Pour EVM over; sweeten if desired.",
               "Top with corn and serve immediately."
-            ],
+            ]
           }
         ]
       },
 
-      // ===== Cream =====
+      // All-Purpose Cream
       "Alaska All-Purpose Cream": {
         Beverage: [
           {
             name: "Cream Cap Iced Coffee",
             desc: "Coffee topped with a lightly sweet cream cap.",
-            ingredients: ["Coffee", "Sugar syrup", "Ice", "Alaska All-Purpose Cream", "Salt (pinch)"],
+            ingredients: [
+              "coffee", "sugar syrup", "ice",
+              "Alaska All-Purpose Cream (chilled)", "pinch of salt"
+            ],
             steps: [
               "Sweeten coffee and pour over ice.",
               "Whip cold cream with a pinch of salt.",
               "Spoon cream cap on top and serve."
-            ],
+            ]
           },
           {
             name: "Thick Milkshake Base",
             desc: "Rich, café-style thickness with simple steps.",
-            ingredients: ["Milk", "Alaska All-Purpose Cream", "Flavor syrup or cocoa", "Ice"],
+            ingredients: [
+              "fresh milk", "Alaska All-Purpose Cream", "flavor syrup/cocoa",
+              "ice", "vanilla (optional)"
+            ],
             steps: [
               "Blend milk with cream and flavor.",
               "Add ice gradually to desired body.",
               "Serve thick and cold."
-            ],
+            ]
           },
           {
             name: "Creamy Iced Chocolate",
             desc: "Chocolate drink with premium mouthfeel.",
-            ingredients: ["Cocoa/syrup", "Milk", "Alaska All-Purpose Cream", "Ice"],
+            ingredients: [
+              "cocoa or chocolate syrup", "milk", "Alaska All-Purpose Cream", "ice"
+            ],
             steps: [
               "Stir cocoa/syrup into milk.",
               "Add cream and mix until smooth.",
               "Pour over ice."
-            ],
+            ]
           }
         ],
         Dessert: [
           {
             name: "Mango Float Cups",
             desc: "Premium layered cups with whipped cream body.",
-            ingredients: ["Alaska All-Purpose Cream", "SCM (to taste)", "Graham crackers", "Ripe mangoes"],
+            ingredients: [
+              "Alaska All-Purpose Cream (cold)", "SCM (to taste)", "graham crackers",
+              "ripe mangoes", "crumbs for topping"
+            ],
             steps: [
               "Whip cold cream; sweeten lightly.",
               "Layer graham, cream, and mango.",
               "Chill until set before serving."
-            ],
+            ]
           },
           {
             name: "No-Bake Cheesecake-in-a-Cup",
             desc: "Creamy cheesecake style without the oven.",
-            ingredients: ["Alaska All-Purpose Cream", "Cream cheese", "Sugar", "Crushed cookies"],
+            ingredients: [
+              "Alaska All-Purpose Cream", "cream cheese", "sugar",
+              "crushed cookies", "lemon zest (optional)"
+            ],
             steps: [
               "Whip cream with softened cream cheese.",
               "Sweeten to taste.",
               "Layer over cookie crumbs and chill."
-            ],
+            ]
           },
           {
             name: "Oreo Parfait",
             desc: "Cookies & cream parfait with stable texture.",
-            ingredients: ["Alaska All-Purpose Cream", "Crushed cookies", "Chocolate syrup (optional)"],
+            ingredients: [
+              "Alaska All-Purpose Cream", "crushed cookies", "chocolate syrup (optional)",
+              "toasted nuts (optional)"
+            ],
             steps: [
               "Whip cream to soft peaks.",
               "Layer with crushed cookies.",
               "Chill and drizzle syrup."
-            ],
+            ]
           }
         ]
       },
 
-      // ===== 2-in-1 Creamer =====
+      // 2-in-1 Creamer
       "Alaska 2-in-1 Creamer": {
         Beverage: [
           {
             name: "Iced Coffee with Creamer",
             desc: "Smooth coffee with convenient 2‑in‑1 body.",
-            ingredients: ["Coffee", "Alaska 2-in-1 Creamer", "Sugar (optional)", "Ice"],
+            ingredients: [
+              "coffee", "Alaska 2-in-1 Creamer", "sugar (optional)", "ice"
+            ],
             steps: [
               "Stir creamer into hot coffee.",
               "Sweeten if needed.",
               "Cool and pour over ice."
-            ],
+            ]
           },
           {
             name: "Iced Chocolate Malt",
             desc: "Comforting chocolate malt with creamy finish.",
-            ingredients: ["Cocoa/malt powder", "Alaska 2-in-1 Creamer", "Water/milk", "Ice"],
+            ingredients: [
+              "cocoa/malt powder", "Alaska 2-in-1 Creamer", "water or milk", "ice"
+            ],
             steps: [
               "Dissolve cocoa/malt with creamer.",
               "Add water/milk and mix.",
               "Serve over ice."
-            ],
+            ]
           },
           {
             name: "Matcha Latte (Quick)",
             desc: "Balanced matcha with a smooth, milky profile.",
-            ingredients: ["Matcha", "Alaska 2-in-1 Creamer", "Water/milk", "Ice"],
+            ingredients: [
+              "matcha", "Alaska 2-in-1 Creamer", "water or milk", "ice"
+            ],
             steps: [
               "Whisk matcha with a splash of warm water.",
               "Stir in creamer until smooth.",
-              "Top up with ice and water/milk."
-            ],
+              "Top up with ice and liquid."
+            ]
           },
           {
             name: "Milk Tea Express",
             desc: "Fast-build milk tea for service rush.",
-            ingredients: ["Strong tea", "Alaska 2-in-1 Creamer", "Sugar (optional)", "Ice"],
+            ingredients: [
+              "strong tea", "Alaska 2-in-1 Creamer", "sugar (optional)", "ice", "pearls (optional)"
+            ],
             steps: [
               "Brew strong tea.",
               "Blend with creamer; sweeten if needed.",
               "Pour over ice."
-            ],
+            ]
           }
         ],
         Dessert: [
           {
             name: "Coffee Jelly with Creamer",
             desc: "Easy dessert cups with milky pour.",
-            ingredients: ["Coffee jelly", "Alaska 2-in-1 Creamer", "Sugar (optional)"],
+            ingredients: [
+              "coffee jelly", "Alaska 2-in-1 Creamer", "sugar (optional)"
+            ],
             steps: [
               "Prepare firm coffee jelly; cube and chill.",
               "Portion jelly in cups.",
               "Top with sweetened creamer and serve."
-            ],
+            ]
           },
           {
             name: "Crema Fruit Cups",
             desc: "Light fruit dessert with smooth creamer.",
-            ingredients: ["Assorted fruits", "Alaska 2-in-1 Creamer", "Sugar (optional)"],
+            ingredients: [
+              "assorted fruits", "Alaska 2-in-1 Creamer", "sugar (optional)", "mint (optional)"
+            ],
             steps: [
               "Chill fruits.",
               "Toss lightly with creamer.",
               "Serve immediately."
-            ],
+            ]
           },
           {
             name: "Sago’t Gulaman Cream Mix",
             desc: "Classic local mix with milky twist.",
-            ingredients: ["Sago", "Gulaman", "Syrup", "Alaska 2-in-1 Creamer"],
+            ingredients: [
+              "sago", "gulaman", "brown sugar syrup", "Alaska 2-in-1 Creamer"
+            ],
             steps: [
               "Cook sago and gulaman; cool.",
               "Combine with syrup and creamer.",
               "Serve cold."
-            ],
+            ]
           }
         ]
       }
     };
 
-    // ===== Generation Logic =====
+    // ===== Constraint adjustments & format nudge =====
+    function applyConstraintAdjustments(obj, constraint, category) {
+      if (!constraint) return obj;
+      const clone = JSON.parse(JSON.stringify(obj));
+      if (constraint === "No oven") {
+        clone.steps = clone.steps.map(s => s.replace(/bake|oven/gi, "steam or chill"));
+        if (!clone.steps.some(s => /chill|cool|steam/i.test(s))) {
+          clone.steps.push(category === "Dessert" ? "Chill to set before serving." : "Serve well-chilled over ice.");
+        }
+        clone.desc += " Built for no-bake prep.";
+      }
+      if (constraint === "30-min prep") {
+        clone.desc += " Quick to assemble; focus on fast set/chill.";
+        if (!clone.steps.some(s => /quick/i.test(s))) clone.steps.push("Quick-chill and serve.");
+      }
+      if (constraint === "Budget-friendly") {
+        clone.desc += " Uses accessible ingredients and simple add-ins.";
+      }
+      if (constraint === "Premium offering") {
+        clone.desc += " Elevate with clean layering and quality garnishes.";
+      }
+      return clone;
+    }
+
+    function packLineFor(format){
+      return (format === "Per tray") ? "Pack neatly in trays." :
+             (format === "Per bottle") ? "Bottle securely and chill." :
+             (format === "Per serving") ? "Portion consistently and serve." :
+             "Serve in cups with steady portioning.";
+    }
+
+    // ===== Generation Helpers =====
     function pickThree(arr) {
       if (arr.length <= 3) return arr.slice(0, 3);
       const pick = new Set();
@@ -487,61 +622,25 @@
       return [...pick].map(i => arr[i]);
     }
 
-    function twistName(baseName) {
-      const f = flavorTwists[Math.floor(Math.random() * flavorTwists.length)];
-      return Math.random() < 0.6 ? `${f} ${baseName}` : baseName; // sometimes add a flavor prefix
+    function enrichIngredients(baseIngredients, category) {
+      // Add 2–3 extra detail lines to make it more helpful (still high-level, no quantities).
+      const pool = [
+        ...dairyAddOns, ...sweeteners, ...textures, ...flavors, ...aromatics, ...fruits, ...nuts
+      ];
+      const extras = [];
+      while (extras.length < 3) {
+        const p = pool[Math.floor(Math.random() * pool.length)];
+        if (!extras.includes(p) && !baseIngredients.includes(p)) extras.push(p);
+      }
+      const tag = category === "Beverage" ? "ice as needed" : "chill to set";
+      return [...baseIngredients, ...extras.slice(0, 2), tag];
     }
 
-    function buildUpsell(category) {
-      const top = toppings[Math.floor(Math.random() * toppings.length)];
-      const variant = flavorTwists[Math.floor(Math.random() * flavorTwists.length)];
-      const ups = [];
-      ups.push(`Topping add-on: ${top}`);
-      ups.push(`Variant: ${variant}`);
-      ups.push(`Size upgrade: Large cup/bottle option`);
-      return (category === "Beverage")
-        ? `${ups[0]} • ${ups[2]}`
-        : `${ups[0]} • ${ups[1]}`;
-    }
-
-    function applyConstraintAdjustments(obj, constraint, category) {
-      if (!constraint) return obj;
-
-      const clone = JSON.parse(JSON.stringify(obj));
-
-      if (constraint === "No oven") {
-        // Ensure steps avoid baking references; encourage steam/chill
-        clone.steps = clone.steps.map(s =>
-          s.replace(/bake/gi, "steam or chill")
-        );
-        if (!clone.steps.some(s => /chill|cool/i.test(s))) {
-          clone.steps.push(category === "Dessert" ? "Chill to set before serving." : "Serve well-chilled over ice.");
-        }
-        clone.desc += " Built for no-bake prep.";
-      }
-
-      if (constraint === "30-min prep") {
-        clone.desc += " Quick to assemble; focus on fast set/chill.";
-        if (!clone.steps.some(s => /quick/i.test(s))) {
-          clone.steps.push("Quick-chill and serve.");
-        }
-      }
-
-      if (constraint === "Budget-friendly") {
-        clone.desc += " Uses accessible ingredients and simple add-ins.";
-      }
-
-      if (constraint === "Premium offering") {
-        clone.desc += " Elevate with neat layering and quality garnishes.";
-      }
-
-      return clone;
-    }
-
+    // ===== Generate Ideas =====
     function generateIdeas() {
       const base = document.querySelector('input[name="base"]:checked')?.value || "";
       const category = document.querySelector('input[name="biztype"]:checked')?.value || "";
-      const constraint = $("constraint").value; // optional
+      const constraint = $("constraint").value;
       const format = $("sellingFormat").value;
 
       if (!base) { alert("Please select an Alaska base."); return; }
@@ -549,47 +648,56 @@
 
       const pool = ideas[base]?.[category] || [];
       if (!pool.length) {
-        renderIdeaCards([
-          {
-            recipeName: "No ideas available",
-            category,
-            baseType: base,
-            desc: "Try a different base or category.",
-            ingredients: [],
-            steps: []
-          }
-        ]);
+        renderIdeaCards([{
+          recipeName: "No ideas available",
+          desc: "Try a different base or category.",
+          baseType: base,
+          category,
+          ingredients: [],
+          steps: [],
+          upsell: "",
+          why: "Well-balanced idea."
+        }]);
         return;
       }
 
       const picks = pickThree(pool).map(p => {
         const adj = applyConstraintAdjustments(p, constraint, category);
-        const name = twistName(adj.name);
-        const upsell = buildUpsell(category);
-        const why = whyMap[base] || "Well-balanced idea.";
-        // Gentle nod to selling format without adding new required fields
         const steps = adj.steps.slice();
-        if (!steps.some(s => /pack|bottle|tray|serve/i.test(s))) {
-          const packLine = (format === "Per tray") ? "Pack neatly in trays." :
-                           (format === "Per bottle") ? "Bottle securely and chill." :
-                           (format === "Per serving") ? "Portion consistently and serve." :
-                           "Serve in cups with steady portioning.";
-          steps.push(packLine);
-        }
+        const packLine = packLineFor(format);
+        if (!steps.some(s => /pack|bottle|tray|serve/i.test(s))) steps.push(packLine);
+
+        // Enrich ingredient details
+        const detailedIngredients = enrichIngredients(adj.ingredients, category);
+
+        // Upsell / variant
+        const upsell = buildUpsell(category);
+
         return {
-          recipeName: name,
+          recipeName: adj.name,
           desc: adj.desc,
           baseType: base,
           category,
-          ingredients: adj.ingredients,
+          ingredients: detailedIngredients,
           steps,
           upsell,
-          why
+          why: whyMap[base] || "Well-balanced idea."
         };
       });
 
       renderIdeaCards(picks);
       showStatus("Ideas ready");
+    }
+
+    // Upsell builder (kept simple)
+    const flavorTwists = ["Ube", "Mango", "Mocha", "Pandan", "Strawberry", "Caramel", "Chocolate", "Cookies & Cream", "Banoffee", "Matcha"];
+    const toppings = ["nata de coco", "sago/pearls", "whipped cream", "toasted nuts", "choco chips", "crushed graham", "leche flan bits", "coffee jelly", "mango cubes"];
+    function buildUpsell(category) {
+      const top = toppings[Math.floor(Math.random() * toppings.length)];
+      const variant = flavorTwists[Math.floor(Math.random() * flavorTwists.length)];
+      return (category === "Beverage")
+        ? `Topping add-on: ${top} • Size upgrade: Large cup/bottle`
+        : `Topping add-on: ${top} • Variant: ${variant}`;
     }
 
     // ===== Rendering =====
@@ -598,38 +706,44 @@
       wrap.innerHTML = "";
       cards.forEach(c => {
         const card = document.createElement("article");
-        card.className = "border rounded-lg p-4";
+        card.className = "rounded-xl border bg-white p-4 shadow-sm";
         card.innerHTML = `
           <div class="flex items-start justify-between gap-3">
             <div>
-              <h3 class="text-sm font-bold">${escapeHtml(c.recipeName)}</h3>
-              <p class="text-xs text-gray-600 mt-0.5">Best for: <span class="font-medium">${escapeHtml(c.category)}</span> • Base: ${escapeHtml(c.baseType)}</p>
+              <h3 class="text-sm font-bold tracking-tight">${escapeHtml(c.recipeName)}</h3>
+              <p class="text-xs text-gray-600 mt-0.5">
+                <span class="font-medium">Best for:</span> ${escapeHtml(c.category)}
+                <span class="mx-1">•</span>
+                <span class="font-medium">Base:</span> ${escapeHtml(c.baseType)}
+              </p>
             </div>
-            <button class="saveBtn text-xs px-2 py-1 rounded-md bg-emerald-600 text-white">Save Idea</button>
+            <button class="saveBtn text-xs px-2 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white transition">Save Idea</button>
           </div>
+
           <p class="text-sm mt-2">${escapeHtml(c.desc)}</p>
+
           <div class="mt-3">
-            <h4 class="text-xs font-semibold">Ingredients (high-level)</h4>
-            <ul class="list-disc pl-5 text-sm mt-1">
+            <h4 class="text-xs font-semibold uppercase tracking-wide text-gray-700">Ingredients (high-level)</h4>
+            <ul class="list-disc pl-5 text-sm mt-1 space-y-0.5">
               ${c.ingredients.map(i => `<li>${escapeHtml(i)}</li>`).join("")}
             </ul>
           </div>
+
           <div class="mt-3">
-            <h4 class="text-xs font-semibold">Steps</h4>
-            <ol class="list-decimal pl-5 text-sm mt-1">
+            <h4 class="text-xs font-semibold uppercase tracking-wide text-gray-700">Steps</h4>
+            <ol class="list-decimal pl-5 text-sm mt-1 space-y-0.5">
               ${c.steps.map(s => `<li>${escapeHtml(s)}</li>`).join("")}
             </ol>
           </div>
-          <p class="text-sm mt-3"><span class="font-semibold">Why this works:</span> ${escapeHtml(c.why)}</p>
-          <p class="text-sm text-gray-700 mt-1"><span class="font-semibold">Upsell/Variant:</span> ${escapeHtml(c.upsell)}</p>
+
+          <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <p class="text-sm"><span class="font-semibold">Why this works:</span> ${escapeHtml(c.why)}</p>
+            <p class="text-sm text-gray-700"><span class="font-semibold">Upsell/Variant:</span> ${escapeHtml(c.upsell)}</p>
+          </div>
         `;
-        // Bind Save
-        card.querySelector(".saveBtn").addEventListener("click", () => {
-          saveIdea(c);
-        });
+        card.querySelector(".saveBtn").addEventListener("click", () => saveIdea(c));
         wrap.appendChild(card);
       });
-      // Scroll into view on mobile
       wrap.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
@@ -661,21 +775,20 @@
       }
       arr.forEach(item => {
         const row = document.createElement("div");
-        row.className = "border rounded-md p-3 flex items-start justify-between gap-3";
+        row.className = "border rounded-lg p-3 bg-white flex items-start justify-between gap-3";
         row.innerHTML = `
           <div>
             <div class="text-sm font-medium">${escapeHtml(item.recipeName)}</div>
             <div class="text-xs text-gray-600 mt-0.5">Base: ${escapeHtml(item.baseType)} • ${escapeHtml(fmtDateTime(item.createdAt))}</div>
           </div>
           <div class="flex gap-2">
-            <button class="viewBtn text-xs px-2 py-1 rounded-md bg-blue-600 text-white" data-id="${item.id}">View</button>
-            <button class="delBtn text-xs px-2 py-1 rounded-md bg-red-50 text-red-700 border" data-id="${item.id}">Delete</button>
+            <button class="viewBtn text-xs px-2 py-1 rounded-md bg-brand-700 hover:bg-brand-600 text-white transition" data-id="${item.id}">View</button>
+            <button class="delBtn text-xs px-2 py-1 rounded-md bg-red-50 hover:bg-red-100 text-red-700 border transition" data-id="${item.id}">Delete</button>
           </div>
         `;
         list.appendChild(row);
       });
 
-      // Bind actions
       list.querySelectorAll(".viewBtn").forEach(btn => {
         btn.addEventListener("click", () => {
           const id = btn.dataset.id;
@@ -685,7 +798,7 @@
             const upsell = buildUpsell(found.category);
             renderIdeaCards([{
               recipeName: found.recipeName,
-              desc: "", // keep card clean; saved items may not carry desc
+              desc: "",
               baseType: found.baseType,
               category: found.category,
               ingredients: found.ingredients,
@@ -697,12 +810,13 @@
           }
         });
       });
+
       list.querySelectorAll(".delBtn").forEach(btn => {
         btn.addEventListener("click", () => {
           const id = btn.dataset.id;
           if (!confirm("Delete this saved idea?")) return;
-          const arr = loadSaved().filter(x => x.id !== id);
-          saveAll(arr);
+          const next = loadSaved().filter(x => x.id !== id);
+          saveAll(next);
           renderSavedList();
           showStatus("Deleted");
         });
@@ -714,10 +828,7 @@
       $("generateBtn").addEventListener("click", generateIdeas);
       $("refreshSaved").addEventListener("click", renderSavedList);
     }
-    function init() {
-      bindEvents();
-      renderSavedList();
-    }
+    function init() { bindEvents(); renderSavedList(); }
     document.addEventListener("DOMContentLoaded", init);
   </script>
 </body>
